@@ -6,15 +6,26 @@ import { RolesComponent } from './roles/roles.component';
 import { MetricsComponent } from './metrics/metrics.component';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { DetailsUserComponent } from './users/details-user/details-user.component';
+import { LoginComponent } from './auth/login/login.component';
+import { MainlayoutComponent } from './mainlayout/mainlayout.component';
 
 export const routes: Routes = [
-    {path: "", component: HomeComponent},
-    {path: "users", component: UsersComponent},
-    {path: "metrics", component: MetricsComponent},
-    {path: "roles", component: RolesComponent},
-    {path: "audits", component: AuditsComponent},
-    {path: "users/new-user", component:NewUserComponent},
-    {path: "users/details-user/:id", component:DetailsUserComponent},
-    {path: "**", redirectTo: ""},
+    {
+        path: "", component: LoginComponent
+    },
+    {
+        path: "",
+        component: MainlayoutComponent,
+        children: [
+            {path: "home", component: HomeComponent},
+            {path: "users", component: UsersComponent},
+            {path: "metrics", component: MetricsComponent},
+            {path: "roles", component: RolesComponent},
+            {path: "audits", component: AuditsComponent},
+            {path: "users/new-user", component:NewUserComponent},
+            {path: "users/details-user/:id", component:DetailsUserComponent},
+            {path: "**", redirectTo: ""},
+        ]
+    },
 ];
 

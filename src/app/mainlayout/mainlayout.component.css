@@ -1,0 +1,46 @@
+body{
+background-color: #f1f1f1;
+display: flex;
+width: 100%;                     /* Ocupa todo el ancho de la pantalla */
+height: 100vh; 
+}
+
+.container {
+display: flex;
+/* Espacio entre los contenedores */
+            /* Asegura que los contenedores tengan la misma altura */
+width: 100%;                     /* Ocupa todo el ancho de la pantalla */
+height: 100%;                   /* Ocupa toda la altura de la ventana */
+}
+.container-main {
+display: flex;
+flex-direction: column;
+margin: 15px;  /* Espacio entre los contenedores */
+            /* Asegura que los contenedores tengan la misma altura */
+width: 100%;                     /* Ocupa todo el ancho de la pantalla */
+                    /* Ocupa toda la altura de la ventana */
+                    /* Espaciado alrededor del contenedor */
+background-color: #f1f1f1;         /* Para que el padding no afecte el tamaño total */
+}
+
+/* Estilo para cada uno de los contenedores */
+.box1 {
+width: 26%;  /* 20% del ancho de la pantalla */
+    /* Margen solamente a la izquierda */
+background-color: #ffffff;  /* Color de fondo */
+
+}
+
+.box2 {
+background-color: f1f1f1;  
+margin-bottom: 30px;   
+height: 10%;
+border-bottom: 2px solid #BEBEBE;
+}
+.box3 {
+background-color: #ffffff;
+margin-bottom: 7px;  
+margin-top: 10px; 
+height: 90%;
+padding: 10px 20px;
+}  
