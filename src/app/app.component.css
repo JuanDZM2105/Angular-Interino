@@ -2,7 +2,7 @@ body{
     background-color: #f1f1f1;
     display: flex;
     width: 100%;                     /* Ocupa todo el ancho de la pantalla */
-    height: 100vh; 
+    height: 100vh;
 }
 
 .container {
@@ -22,25 +22,26 @@ body{
                        /* Espaciado alrededor del contenedor */
     background-color: #f1f1f1;         /* Para que el padding no afecte el tamaño total */
   }
-  
+
   /* Estilo para cada uno de los contenedores */
   .box1 {
     width: 26%;  /* 20% del ancho de la pantalla */
       /* Margen solamente a la izquierda */
     background-color: #ffffff;  /* Color de fondo */
-    
+
   }
-  
+
   .box2 {
-    background-color: f1f1f1;  
-    margin-bottom: 30px;   
+    background-color: f1f1f1;
+    margin-bottom: 30px;
     height: 10%;
     border-bottom: 2px solid #BEBEBE;
   }
   .box3 {
     background-color: #ffffff;
-    margin-bottom: 7px;  
-    margin-top: 10px; 
+    margin-bottom: 7px;
+    margin-top: 10px;
     height: 90%;
     padding: 10px 20px;
-  }  
+    border: 2px solid #606060;
+  }

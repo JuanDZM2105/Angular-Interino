@@ -27,6 +27,38 @@ export class AppComponent  implements OnInit {
         poster: 'https://upload.wikimedia.org/wikipedia/en/7/73/Moana_2_poster.jpg'
       }];
 
+      this.users = [
+        {
+          id: 1,
+          name: 'Juan Pérez',
+          email: 'juan.perez@example.com',
+          password: 'password123',
+          phone: '+54123456789'
+        },
+        {
+          id: 2,
+          name: 'Maria López',
+          email: 'maria.lopez@example.com',
+          password: 'qwerty456',
+          phone: '+52345678901'
+        },
+        {
+          id: 3,
+          name: 'Carlos García',
+          email: 'carlos.garcia@example.com',
+          password: 'carlospass789',
+          phone: '+34987654321'
+        },
+        {
+          id: 4,
+          name: 'Ana Martínez',
+          email: 'ana.martinez@example.com',
+          password: 'ana2023!',
+          phone: '+573214567890'
+        }
+      ];
+
+
       this.peliculasProximosEstrenos = [
         {
           titulo: 'Bad Boys: Ride or Die',
@@ -54,8 +86,9 @@ export class AppComponent  implements OnInit {
         }];
     }, 2000);
   }
-  
+
   peliculasEnCines!: any[];
   peliculasProximosEstrenos!: any[];
- 
+  users!: any[];
+
 }

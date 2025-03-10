@@ -8,9 +8,18 @@ body{
 }
 
 .title {
-    
+
     font-family: 'Poppins';
     font-size: 32px;
     padding: 0px 0px 20px 5px;
     margin-bottom: 10px;
+
   }
+
+.upper{
+  border-bottom: 2px solid #BEBEBE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  /* Opcional: Alinea verticalmente en el centro */
+  width: 100%;  /* Asegúrate de que el contenedor ocupe todo el ancho */
+}

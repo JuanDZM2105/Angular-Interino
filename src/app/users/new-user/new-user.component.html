@@ -1,18 +1,4 @@
 <h1 class="title">New user</h1>
 
-<form (submit)="guardarCambios()" [formGroup]="form">
-    <mat-form-field appereance="outline">  
-        <mat-label>nombre</mat-label>
-        <input matInput [formControl]="form.controls.nombre">
-        <mat-error>{{obtenerErrorCampoNombre()}}</mat-error>
-    </mat-form-field>
-
-    <div>
-        <button mat-flat-button type="button" 
-        (click)="guardarCambios()" [disabled]="form.invalid">
-            Save
-        </button>
-        <a mat-stroked-button routerLink="/users">Back</a>
-    </div>
-</form>
+<app-form-users (postForms)="guardarCambios($event)"></app-form-users>
 

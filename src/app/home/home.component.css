@@ -1,11 +1,12 @@
 .container-fluid{
     display: flex;
-    
+
     justify-content: space-between;
-    
+
     padding: 15px 20px;
     border-bottom: 2px solid #BEBEBE;
-    border-top: 2px solid #BEBEBE;
+
+
 }
 
 .main-link {
@@ -18,7 +19,7 @@
     color: black;
     text-decoration: none;
   }
-  
+
   .main-link mat-icon {
     font-size: 35px;
     width: auto; /* Asegura que el contenedor se ajuste al tamaño del ícono */
@@ -26,12 +27,12 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra suave */
   transition: all 0.3s ease;
    }
-  
+
    .main-link:hover mat-icon {
     transform: scale(1.1); /* Aumenta el tamaño del icono */
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra más intensa en hover */
   }
-  
+
   .main-link:hover {
     color: #0D47A1; /* Cambia el color del texto en hover (si lo deseas) */
   }

@@ -1,0 +1,10 @@
+@use "@angular/material" as mat;
+
+.button-new {
+  @include mat.theme((
+    color: mat.$azure-palette,
+  ));
+}
+
+
+

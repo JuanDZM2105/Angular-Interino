@@ -4,34 +4,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
+import { FormUsersComponent } from '../form-users/form-users.component';
+import { UserCreationDTO } from '../users';
 
 @Component({
   selector: 'app-new-user',
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule,ReactiveFormsModule,MatInputModule],
+  imports: [MatButtonModule, RouterLink, MatFormFieldModule,ReactiveFormsModule,MatInputModule,FormUsersComponent],
   templateUrl: './new-user.component.html',
   styleUrl: './new-user.component.css'
 })
 export class NewUserComponent {
 
-  private router = inject(Router);
-  private formbuilder = inject(FormBuilder);
-  form = this.formbuilder.group({
-    nombre: ['', {validators: [Validators.required]}]
-  })
-
-  obtenerErrorCampoNombre(): string{
-    let nombre = this.form.controls.nombre;
-
-    if (nombre.hasError('required')){
-      return "el campo es requerido";
-    }
-
-    return '';
-  }
-
-  guardarCambios(){
-    //this.router.navigate(['/users']);
-    console.log(this.form.value);
+  guardarCambios(user: UserCreationDTO){
+    console.log("creando user", user);
   }
 
 }

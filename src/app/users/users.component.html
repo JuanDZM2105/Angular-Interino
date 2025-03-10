@@ -1,2 +1,46 @@
-<h1 class="title">Users</h1>
-<button mat-flat-button routerLink="/users/new-user">New User</button>
+<div class="card">
+  <div class="upper">
+    <h1 class="title">Users</h1>
+    <button mat-flat-button class="button-new" routerLink="/users/new-user" >New User</button>
+  </div>
+
+  <div class="card-content">
+    <div class="container-fluid">
+
+            <button class="main-link">
+                <mat-icon>download</mat-icon>
+                Export
+            </button>
+
+            <button class="main-link" >
+                <mat-icon>refresh</mat-icon>
+                Refresh
+            </button>
+            <button class="main-link" >
+                <mat-icon>more_vert</mat-icon>
+                Actions
+            </button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>phone</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (user of users; track $index) {
+        <tr>
+          <td>{{user.id}}</td>
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+        </tr>
+      }
+      </tbody>
+    </table>
+  </div>
+</div>
