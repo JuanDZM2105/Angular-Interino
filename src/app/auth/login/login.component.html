@@ -10,18 +10,18 @@
   
     <div class="flex">
       <div class="container">
-        <form>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <div class="inputs">
-            <input type="email" placeholder="Correo electrónico" required />
+            <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required/>
           </div>
           <div class="inputs">
-            <input type="password" placeholder="Contraseña" required />
+            <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required/>
           </div>
           
-          <button type="button" class="mainbutton login-button" (click)="login()">Iniciar Sesión</button>
+          <button type="submit" class="mainbutton login-button" [disabled]="loginForm.invalid">Login</button>
   
           <div class="remember-checkbox">
-            <label><input type="checkbox" /> Recuérdame</label>
+            <label><input type="checkbox"/>Remember me</label>
           </div>
         </form>
       </div>

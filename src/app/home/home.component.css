@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   padding: 15px 20px;
-  border-bottom: 2px solid #BEBEBE;
+  border-bottom: 2px solid #BEBEBE  ;
 }
 
 .main-link {

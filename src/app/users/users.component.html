@@ -1,3 +1,7 @@
+<div class="upper">
+  <h1 class="title">{{title}}</h1>
+  <button class="mainbutton" routerLink="/users/new-user" >New User</button>
+</div>
 <app-table-layout [title]="title">
   <ng-container tabla>
     <table class="styled-table">
@@ -14,7 +18,11 @@
         @for (user of users; track $index) {
         <tr>
           <td>{{user.id}}</td>
-          <td>{{user.name}}</td>
+          <td class="name-table">
+            <a [routerLink]="['/users/details-user', user.id]">
+              {{ user.name }}
+            </a>
+          </td>
           <td>{{user.email}}</td>
           <td>{{user.phone}}</td>
         </tr>

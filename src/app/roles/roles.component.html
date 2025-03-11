@@ -1,3 +1,6 @@
+<div class="upper">
+  <h1 class="title">{{title}}</h1>
+</div>
 <app-table-layout [title]="title">
   <ng-container tabla>
     <table class="styled-table">
@@ -14,7 +17,11 @@
         @for (rol of roles; track $index) {
         <tr>
           <td>{{rol.id}}</td>
-          <td>{{rol.name}}</td>
+          <td class="name-table">
+            <a [routerLink]="['/users/details-user', rol.id]">
+              {{ rol.name }}
+            </a>
+          </td>
           <td>{{rol.rol}}</td>
           <td>{{rol.state}}</td>
         </tr>
