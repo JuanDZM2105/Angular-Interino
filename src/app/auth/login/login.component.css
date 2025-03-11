@@ -66,6 +66,10 @@ body, html {
     margin: 0;
     margin-bottom: 1.5rem; /* Espacio adicional bajo el texto */
   }
+
+  .login-button {
+    width: 100%;
+  }
   
   /* Caja del formulario */
   .flex {
@@ -105,25 +109,6 @@ body, html {
   .inputs {
     display: flex;
     justify-content: center;
-  }
-  
-  /* Botón */
-  button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border-radius: 20px;
-    font-weight: bold;
-    border: 2px solid #1e56a0;
-    background-color: white;
-    color: #1e56a0;
-    transition: 0.3s ease;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #1e56a0;
-    color: white;
   }
   
   /* Recuérdame checkbox debajo del botón */

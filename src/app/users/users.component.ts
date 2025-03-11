@@ -2,14 +2,16 @@ import { Component, Input } from '@angular/core';
 import { RouterLink} from '@angular/router';
 import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { TableLayoutComponent } from "../genericos/table-layout/table-layout.component";
 
 @Component({
   selector: 'app-users',
-  imports: [RouterLink, MatButtonModule,MatIconModule],
+  imports: [RouterLink, MatButtonModule, MatIconModule, TableLayoutComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
 export class UsersComponent {
+  title = "Users"
 
   //@Input({required: true})
   //users! : any[];

@@ -1,33 +1,12 @@
-<div class="card">
-  <div class="upper">
-    <h1 class="title">Users</h1>
-    <button mat-flat-button class="button-new" routerLink="/users/new-user" >New User</button>
-  </div>
-
-  <div class="card-content">
-    <div class="container-fluid">
-
-            <button class="main-link">
-                <mat-icon>download</mat-icon>
-                Export
-            </button>
-
-            <button class="main-link" >
-                <mat-icon>refresh</mat-icon>
-                Refresh
-            </button>
-            <button class="main-link" >
-                <mat-icon>more_vert</mat-icon>
-                Actions
-            </button>
-    </div>
-    <table class="table">
+<app-table-layout [title]="title">
+  <ng-container tabla>
+    <table class="styled-table">
       <thead>
         <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>phone</th>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">phone</th>
         </tr>
       </thead>
 
@@ -42,5 +21,5 @@
       }
       </tbody>
     </table>
-  </div>
-</div>
+  </ng-container>
+</app-table-layout>
