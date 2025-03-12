@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { 
+  height: 100%; 
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family:"Poppins", sans-serif; }
-
-body{
-    height:fit-content;
+body { 
+  margin: 0; 
+  font-family:"Poppins", sans-serif;
+  height:fit-content; 
 }
 
 .brand-logo {
@@ -44,7 +46,6 @@ body{
   color: white;
 }
 
-/* Estilo general para toolbar de botones */
 .button-toolbar {
   border-bottom: 2px solid #BEBEBE;
   padding: 10px 0;
@@ -88,13 +89,11 @@ body{
   transition: color 0.3s ease;
 }
 
-/* Hover solo cambia el color del texto (opcional) */
 .flat-button:hover {
   background-color: #484848;
   color: #fff;
 }
 
-/* Tabla estilizada */
 .styled-table {
   width: 100%;
   border-collapse: separate;
@@ -103,7 +102,6 @@ body{
   font-size: 14px;
 }
 
-/* Cabecera */
 .styled-table thead tr {
   background-color: #f4f4f4;
   text-align: left;
@@ -116,7 +114,6 @@ body{
   border-bottom: 2px solid #ddd;
 }
 
-/* Filas de datos */
 .styled-table tbody tr {
   background-color: #fff;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
@@ -128,7 +125,6 @@ body{
   border-bottom: 1px solid #eee;
 }
 
-/* Hover en filas */
 .styled-table tbody tr:hover {
   background-color: #f9f9f9;
 }

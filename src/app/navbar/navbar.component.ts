@@ -8,6 +8,4 @@ import { MatIconModule} from '@angular/material/icon';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent {
-
-}
+export class NavbarComponent {}

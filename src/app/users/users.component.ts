@@ -23,8 +23,4 @@ export class UsersComponent{
   title = "Users"
   users: any[] = [];
   usersService = inject(UsersService);
-
-
-
-
 }

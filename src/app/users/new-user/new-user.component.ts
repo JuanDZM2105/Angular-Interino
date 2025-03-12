@@ -9,7 +9,7 @@ import { UserCreationDTO } from '../users';
 
 @Component({
   selector: 'app-new-user',
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule,ReactiveFormsModule,MatInputModule,FormUsersComponent],
+  imports: [MatButtonModule,MatFormFieldModule,ReactiveFormsModule,MatInputModule,FormUsersComponent],
   templateUrl: './new-user.component.html',
   styleUrl: './new-user.component.css'
 })

@@ -1,7 +1,7 @@
 body {
     background-color: #f1f1f1;
     display: flex;
-    width: 100%;                     /* Ocupa todo el ancho de la pantalla */
+    width: 100%;                     
 }
 
 .container {
@@ -17,11 +17,9 @@ body {
     background-color: #f1f1f1;
 }
 
-/* Estilo para cada uno de los contenedores */
 .box1 {
-    width: 26%;  /* 20% del ancho de la pantalla */
-        /* Margen solamente a la izquierda */
-    background-color: #ffffff;  /* Color de fondo */
+    width: 26%;
+    background-color: #ffffff;
 }
 
 .box2 {
