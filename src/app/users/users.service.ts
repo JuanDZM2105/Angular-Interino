@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { UserDTO } from './users';
+import { UserCreationDTO, UserDTO } from './users';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
@@ -16,5 +16,9 @@ export class UsersService {
 
   public obtenertodo():Observable<UserDTO[]> {
     return this.http.get<UserDTO[]>(this.urlBase);
+  }
+
+  public crear(user:UserCreationDTO){
+    return this.http.post(this.urlBase, user);
   }
 }

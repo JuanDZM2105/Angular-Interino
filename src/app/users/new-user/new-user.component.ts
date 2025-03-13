@@ -6,17 +6,36 @@ import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
 import { FormUsersComponent } from '../form-users/form-users.component';
 import { UserCreationDTO } from '../users';
+import { UsersService } from '../users.service';
+import { ExtractErrors } from '../../shared/functions/ExractErrors';
+import { ShowErrorsComponent } from "../../shared/components/show-errors/show-errors.component";
 
 @Component({
   selector: 'app-new-user',
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule,ReactiveFormsModule,MatInputModule,FormUsersComponent],
+  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, FormUsersComponent, ShowErrorsComponent],
   templateUrl: './new-user.component.html',
   styleUrl: './new-user.component.css'
 })
 export class NewUserComponent {
 
-  guardarCambios(user: UserCreationDTO){
-    console.log("creando user", user);
-  }
+  private userService = inject(UsersService);
+  private router = inject(Router);
+  errors: string[] = [];
 
+  guardarCambios(user: UserCreationDTO){
+    this.userService.crear(user).subscribe({
+
+      next: () => {
+        this.router.navigate(['/users'])
+      },
+      error: err => {
+        const errors = ExtractErrors(err);
+        this.errors = errors;
+        
+      }
+    }
+
+    )
+
+  }
 }

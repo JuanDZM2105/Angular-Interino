@@ -31,11 +31,23 @@ export class FormUsersComponent implements OnInit{
   postForms = new EventEmitter<UserCreationDTO>();
 
   form = this.formBuilder.group({
-    name: ['', {validators: [Validators.required]}],
+    name: ['', {validators: [Validators.required, Validators.maxLength(50)]}],
     email: ['', {validators: [Validators.required, Validators.email]}],
     password: ['', {validators: [Validators.required]}],
     phone: ['', {validators: [Validators.required]}],
   });
+
+  obtenerErrorCampoNombre(): string {
+    let nombre = this.form.controls.name;
+
+    if(nombre.hasError('required')){
+      return "The name field is required";
+    }
+
+    if(nombre.hasError('maxLenght')){
+      return `${nombre.getError('maxLenght').requiredLenght}`;
+    }
+  }
 
   guardarCambios(){
     if(this.form.invalid){

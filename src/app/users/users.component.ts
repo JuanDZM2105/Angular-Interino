@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { UsersService } from './users.service';
 import { environment } from '../../environments/environment.development';
 import { TableLayoutComponent } from "../genericos/table-layout/table-layout.component";
+import { UserDTO } from './users';
 
 @Component({
   selector: 'app-users',
@@ -19,9 +20,10 @@ export class UsersComponent{
   //@Input({required: true})
   //users! : any[];
 
-  users: any[] = [];
-
+ 
   usersService = inject(UsersService);
+  users!: UserDTO[];
+  columnsToShow = ['id','name','email','phone'];
 
   constructor() {
     this.usersService.obtenertodo().subscribe(users =>
