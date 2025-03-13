@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
 import { TableLayoutComponent } from "../genericos/table-layout/table-layout.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-roles',
-  imports: [TableLayoutComponent],
+  imports: [TableLayoutComponent,RouterLink],
   templateUrl: './roles.component.html',
   styleUrl: './roles.component.css'
 })
 export class RolesComponent {
-  title = "Roles"
+  title = "Roles";
 
   roles = [
     {

@@ -10,6 +10,5 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class TableLayoutComponent {
   @Input({required: true})
-  title: any;
-
+  listado: any;
 }

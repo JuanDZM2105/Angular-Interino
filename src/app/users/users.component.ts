@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { RouterLink} from '@angular/router';
+import { RouterLink, Router} from '@angular/router';
 import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { UsersService } from './users.service';
@@ -15,11 +15,6 @@ import { UserDTO } from './users';
 })
 export class UsersComponent{
 
-  title = "Users"
-
-  //@Input({required: true})
-  //users! : any[];
-
  
   usersService = inject(UsersService);
   users!: UserDTO[];
@@ -30,6 +25,6 @@ export class UsersComponent{
       { this.users = users; });
   }
 
-
+  title = "Users"
 
 }

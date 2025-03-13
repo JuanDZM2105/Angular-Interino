@@ -10,18 +10,26 @@
   
     <div class="flex">
       <div class="container">
-        <form>
+        <form (submit)="login()" [formGroup]="form">
           <div class="inputs">
-            <input type="email" placeholder="Correo electrónico" required />
+              <input matInput placeholder="Email" [formControl]="form.controls.email">
+              <div class="error" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">
+                El email es obligatorio.
+              </div>
           </div>
           <div class="inputs">
-            <input type="password" placeholder="Contraseña" required />
+              <input matInput placeholder="Password" [formControl]="form.controls.password">
+              <div class="error" *ngIf="form.controls.password.hasError('required') && form.controls.password.touched">
+                La contraseña es obligatoria.
+              </div>
           </div>
           
-          <button type="button" class="mainbutton login-button" (click)="login()">Iniciar Sesión</button>
+          <div>
+            <button type="submit" class="mainbutton login-button" mat-flat-button>Login</button>
+          </div>
   
           <div class="remember-checkbox">
-            <label><input type="checkbox" /> Recuérdame</label>
+            <label><input type="checkbox"/>Remember me</label>
           </div>
         </form>
       </div>

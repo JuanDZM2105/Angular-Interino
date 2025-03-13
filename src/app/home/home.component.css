@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px; /* Agrega espacio entre los elementos */
+  gap: 15px;
   font-size: 15px;
   padding: 15px;
   color: black;
@@ -18,17 +18,17 @@
 
 .main-link mat-icon {
   font-size: 35px;
-  width: auto; /* Asegura que el contenedor se ajuste al tamaño del ícono */
-  height: auto; /* Ajusta la altura también */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4); /* Sombra suave */
+  width: auto; 
+  height: auto;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
   }
 
 .main-link:hover mat-icon {
-  transform: scale(1.1); /* Aumenta el tamaño del icono */
-  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5); /* Sombra más intensa en hover */
+  transform: scale(1.1);
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }
 
 .main-link:hover {
-  color: #0D47A1; /* Cambia el color del texto en hover (si lo deseas) */
+  color: #0D47A1;
 }
