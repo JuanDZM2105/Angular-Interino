@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './roles.component.css'
 })
 export class RolesComponent {
-  title = "Roles"
+  title = "Roles";
 
   roles = [
     {

@@ -10,15 +10,23 @@
   
     <div class="flex">
       <div class="container">
-        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <form (submit)="login()" [formGroup]="form">
           <div class="inputs">
-            <input type="email" placeholder="Email" name="email" [(ngModel)]="email" required/>
+              <input matInput placeholder="Email" [formControl]="form.controls.email">
+              <div class="error" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">
+                El email es obligatorio.
+              </div>
           </div>
           <div class="inputs">
-            <input type="password" placeholder="Password" name="password" [(ngModel)]="password" required/>
+              <input matInput placeholder="Password" [formControl]="form.controls.password">
+              <div class="error" *ngIf="form.controls.password.hasError('required') && form.controls.password.touched">
+                La contraseña es obligatoria.
+              </div>
           </div>
           
-          <button type="submit" class="mainbutton login-button" [disabled]="loginForm.invalid">Login</button>
+          <div>
+            <button type="submit" class="mainbutton login-button" mat-flat-button>Login</button>
+          </div>
   
           <div class="remember-checkbox">
             <label><input type="checkbox"/>Remember me</label>

@@ -2,7 +2,7 @@
   <h1 class="title">{{title}}</h1>
   <button class="mainbutton" routerLink="/users/new-user" >New User</button>
 </div>
-<app-table-layout>
+<app-table-layout [listado]="users">
   <ng-container tabla>
     <table class="styled-table">
       <thead>
