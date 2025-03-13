@@ -18,6 +18,14 @@ export class UsersService {
     return this.http.get<UserDTO[]>(this.urlBase);
   }
 
+  public obtenerPorId(id:number):Observable<UserDTO>{
+    return this.http.get<UserDTO>(`${this.urlBase}/${id}`);
+  }
+
+  public actualizar(id: number, user: UserCreationDTO ){
+    return this.http.put(`${this.urlBase}/${id}`,user);
+  }
+
   public crear(user:UserCreationDTO){
     return this.http.post(this.urlBase, user);
   }

@@ -46,6 +46,8 @@ export class FormUsersComponent implements OnInit{
     if(nombre.hasError('maxLenght')){
       return `${nombre.getError('maxLenght').requiredLenght}`;
     }
+
+    return "";
   }
 
   guardarCambios(){

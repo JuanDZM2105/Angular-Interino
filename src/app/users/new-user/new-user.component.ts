@@ -19,23 +19,14 @@ import { ShowErrorsComponent } from "../../shared/components/show-errors/show-er
 export class NewUserComponent {
 
   private userService = inject(UsersService);
-  private router = inject(Router);
+  router = inject(Router);
   errors: string[] = [];
 
   guardarCambios(user: UserCreationDTO){
-    this.userService.crear(user).subscribe({
-
-      next: () => {
+    this.userService.crear(user).subscribe(() => {
+       
         this.router.navigate(['/users'])
-      },
-      error: err => {
-        const errors = ExtractErrors(err);
-        this.errors = errors;
-        
-      }
-    }
-
-    )
+      });
 
   }
 }
