@@ -1,0 +1,33 @@
+<div class="upper">
+  <h1 class="title">{{title}}</h1>
+  <button class="mainbutton" routerLink="/users/new-user" >New User</button>
+</div>
+<app-table-layout [listado]="users">
+  <ng-container tabla>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">phone</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (user of users; track $index) {
+        <tr>
+          <td>{{user.id}}</td>
+          <td class="name-table">
+            <a [routerLink]="['/users/details-user', user.id]">
+              {{ user.name }}
+            </a>
+          </td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+        </tr>
+      }
+      </tbody>
+    </table>
+  </ng-container>
+</app-table-layout>

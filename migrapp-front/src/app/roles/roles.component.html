@@ -1,0 +1,32 @@
+<div class="upper">
+  <h1 class="title">{{title}}</h1>
+</div>
+<app-table-layout [listado]="roles">
+  <ng-container tabla>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Rol</th>
+          <th scope="col">State</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        @for (rol of roles; track $index) {
+        <tr>
+          <td>{{rol.id}}</td>
+          <td class="name-table">
+            <a [routerLink]="['/users/details-user', rol.id]">
+              {{ rol.name }}
+            </a>
+          </td>
+          <td>{{rol.rol}}</td>
+          <td>{{rol.state}}</td>
+        </tr>
+      }
+      </tbody>
+    </table>
+  </ng-container>
+</app-table-layout>

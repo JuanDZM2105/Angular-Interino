@@ -1,0 +1,38 @@
+<div class="login-wrapper">
+    <div class="login-header">
+      <img src="/logo.png" alt="MIGRAPP Logo" class="brand-logo" />
+    </div>
+  
+    <div class="login-top-content">
+      <div class="user-logo"></div>
+      <h1><strong>Admin</strong> login</h1>
+    </div>
+  
+    <div class="flex">
+      <div class="container">
+        <form (submit)="login()" [formGroup]="form">
+          <div class="inputs">
+              <input matInput placeholder="Email" [formControl]="form.controls.email">
+              <div class="error" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">
+                El email es obligatorio.
+              </div>
+          </div>
+          <div class="inputs">
+              <input matInput type="password" placeholder="Password" [formControl]="form.controls.password">
+              <div class="error" *ngIf="form.controls.password.hasError('required') && form.controls.password.touched">
+                La contraseña es obligatoria.
+              </div>
+          </div>
+          
+          <div>
+            <button type="submit" class="mainbutton login-button" mat-flat-button>Login</button>
+          </div>
+  
+          <div class="remember-checkbox">
+            <label><input type="checkbox"/>Remember me</label>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+  

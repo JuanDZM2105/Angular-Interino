@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family:"Poppins", sans-serif;
+  height:fit-content; 
+}
+
+.brand-logo {
+  height: 60px;
+  width: 200px;
+}
+
+.title {
+  font-family: 'Poppins';
+  font-size: 32px;
+  padding: 0px 0px 20px 5px;
+  margin-bottom: 10px;
+}
+
+.upper{
+  border-bottom: 2px solid #BEBEBE;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+  width: 100%;
+}
+
+.mainbutton {
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  border: 2px solid #1e56a0;
+  background-color: white;
+  color: #1e56a0;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.mainbutton:hover {
+  background-color: #1e56a0;
+  color: white;
+}
+
+.button-toolbar {
+  border-bottom: 2px solid #BEBEBE;
+  padding: 10px 0;
+  margin-bottom: 5px;    
+}
+
+.filters-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: #000;
+  padding: 4px 8px;
+  background-color: #fff;
+}
+
+.search-box mat-icon {
+  font-size: 20px;
+  color: #333;
+  margin-right: 6px;
+}
+
+.flat-button {
+  background: none;
+  border: none;
+  border-radius: 22px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.flat-button:hover {
+  background-color: #484848;
+  color: #fff;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* Espacio entre filas */
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.styled-table thead tr {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+.styled-table thead th {
+  padding: 12px 16px;
+  font-weight: bold;
+  color: #333;
+  border-bottom: 2px solid #ddd;
+}
+
+.styled-table tbody tr {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+}
+
+.styled-table tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.name-table {
+  text-decoration:underline;
+  cursor: pointer;
+  color: #1e56a0;
+}

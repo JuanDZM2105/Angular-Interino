@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-content">
+    <div class="container-fluid button-toolbar">
+
+            <button class="flat-button">
+                <mat-icon>download</mat-icon>
+                Export
+            </button>
+
+            <button class="flat-button" >
+                <mat-icon>refresh</mat-icon>
+                Refresh
+            </button>
+            
+            <button class="flat-button">
+                <mat-icon>more_vert</mat-icon>
+                Actions
+            </button>
+    </div>
+    <div class="filters-bar">
+      <div class="search-box">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search..." />
+      </div>
+    
+      <button class="flat-button">
+        <mat-icon>filter_alt</mat-icon>
+        Añadir filtros
+      </button>
+    </div>
+    <div>
+      @if (listado && listado.length === 0){
+        <p style="text-align: center;">No hay datos para mostrar</p>
+      } @else {
+        <ng-content select="[tabla]"></ng-content>
+      }
+    </div>
+  </div>
+</div>
