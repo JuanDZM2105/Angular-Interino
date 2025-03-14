@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "rNO7Wq9atfR5mNLikJ4OwDJjC5/WNBbtE1RxJBQnw0A=",
+  "Source": "migrapp_api",
+  "BasePath": "_content/migrapp_api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
