@@ -8,10 +8,15 @@ import { NewUserComponent } from './users/new-user/new-user.component';
 import { DetailsUserComponent } from './users/details-user/details-user.component';
 import { LoginComponent } from './auth/login/login.component';
 import { MainlayoutComponent } from './mainlayout/mainlayout.component';
+import { MfaVerificationComponent } from './auth/mfa-verification/mfa-verification.component';
+
 
 export const routes: Routes = [
     {
         path: "", component: LoginComponent
+    },
+    {
+        path: "mfa-verification", component: MfaVerificationComponent
     },
     {
         path: "",

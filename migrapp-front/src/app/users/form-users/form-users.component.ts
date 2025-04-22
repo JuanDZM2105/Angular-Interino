@@ -5,7 +5,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { UserCreationDTO, UserDTO } from '../users';
+import { CreateUserDto } from '../create-user.dto';
 
 @Component({
   selector: 'app-form-users',
@@ -24,10 +24,10 @@ export class FormUsersComponent implements OnInit{
   private formBuilder = inject(FormBuilder);
 
   @Input()
-  modelo?: UserDTO;
+  modelo?: CreateUserDto;
 
   @Output()
-  postForms = new EventEmitter<UserCreationDTO>();
+  postForms = new EventEmitter<CreateUserDto>();
 
   form = this.formBuilder.group({
     name: ['', {validators: [Validators.required, Validators.maxLength(50)]}],
@@ -54,7 +54,7 @@ export class FormUsersComponent implements OnInit{
     if(this.form.invalid){
       return;
     }
-    const user = this.form.value as UserCreationDTO;
+    const user = this.form.value as CreateUserDto;
     this.postForms.emit(user);
 
   }

@@ -1,36 +1,75 @@
-import { Component, inject} from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MfaVerificationComponent } from '../mfa-verification/mfa-verification.component'; // IMPORTAR el componente de MFA
+import { CommonModule, NgIf } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { NgIf } from '@angular/common';
-
 
 @Component({
   selector: 'app-login',
-  imports: [MatButtonModule, RouterLink, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatDatepickerModule, NgIf],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgIf
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  constructor(private router: Router) {}
-
   private formBuilder = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private dialog = inject(MatDialog);  // INYECTAR MatDialog
 
   form = this.formBuilder.group({
-    email: ['', {validators: [Validators.required]}],
-    password: ['', {validators: [Validators.required]}],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    preferredMfaMethod: ['email' as 'email' | 'sms', Validators.required]  // Asumí que quieres guardar el método MFA preferido
   });
-  
-  login(){
-    if(this.form.invalid){
+
+  login() {
+    console.log("Login iniciado...");
+
+    if (this.form.invalid) {
+      console.log("Formulario inválido");
       this.form.markAllAsTouched();
       return;
     }
-    this.router.navigate(['/home']);
+
+    const { email, password, preferredMfaMethod } = this.form.value;
+
+    this.authService.login(email!, password!, preferredMfaMethod!).subscribe({
+      next: (response) => {
+        console.log('Código de verificación enviado:', response.message); // Log aquí
+          
+        // Abrir el modal de MFA para verificar el código
+        const dialogRef = this.dialog.open(MfaVerificationComponent, {
+          width: '400px',  // Ajusta el tamaño del modal si es necesario
+          data: { email: email }  // Pasamos el correo al modal
+        });
+
+        // Después de que el modal se cierre
+        dialogRef.afterClosed().subscribe(result => {
+          if (result) {
+            console.log('Código MFA validado:', result);
+            this.router.navigate(['/home']);  // Redirigir después de la validación del MFA
+          } else {
+            console.log('El modal de MFA no devolvió un resultado válido');
+          }
+        });
+      },
+      error: (error) => {
+        console.error('Error en login', error);
+        alert('Credenciales incorrectas.');
+      }
+    });
   }
 }
+

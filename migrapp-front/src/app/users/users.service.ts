@@ -1,32 +1,25 @@
-import { inject, Injectable } from '@angular/core';
-import { UserCreationDTO, UserDTO } from './users';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment.development';
+import { CreateUserDto } from './create-user.dto'; // importa tu nuevo modelo
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  private http = inject(HttpClient);
-  private urlBase = environment.apiURL + '/Users';
+  private baseUrl = 'https://localhost:7045/api';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  public obtenertodo():Observable<UserDTO[]> {
-    return this.http.get<UserDTO[]>(this.urlBase);
-  }
+  createUser(user: CreateUserDto, token: string): Observable<any> {
+    const url = `${this.baseUrl}/admin/users`;
 
-  public obtenerPorId(id:number):Observable<UserDTO>{
-    return this.http.get<UserDTO>(`${this.urlBase}/${id}`);
-  }
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
 
-  public actualizar(id: number, user: UserCreationDTO ){
-    return this.http.put(`${this.urlBase}/${id}`,user);
-  }
-
-  public crear(user:UserCreationDTO){
-    return this.http.post(this.urlBase, user);
+    return this.http.post(url, user, { headers });
   }
 }

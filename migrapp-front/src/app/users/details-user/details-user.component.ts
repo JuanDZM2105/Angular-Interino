@@ -1,5 +1,5 @@
 import { Component, inject, Input, numberAttribute, OnInit } from '@angular/core';
-import { UserCreationDTO, UserDTO } from '../users';
+import { CreateUserDto } from '../create-user.dto'; // ojo a la ruta
 import { FormUsersComponent } from '../form-users/form-users.component';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   templateUrl: './details-user.component.html',
   styleUrl: './details-user.component.css'
 })
-export class DetailsUserComponent implements OnInit {
+export class DetailsUserComponent /**implements OnInit*/ {}
+/** 
   ngOnInit(): void {
     this.userService.obtenerPorId(this.id).subscribe(user => {
       this.user = user;
@@ -20,15 +21,16 @@ export class DetailsUserComponent implements OnInit {
   @Input({transform: numberAttribute})
   id!:number;
 
-  user?: UserDTO;
+  user?: CreateUserDto;
   userService = inject(UsersService);
   router = inject(Router);
   errors: string[] = [];
   
-    guardarCambios(user: UserCreationDTO){
+    guardarCambios(user: CreateUserDto){
       this.userService.actualizar(this.id, user).subscribe(() => {         
           this.router.navigate(['/users'])
         });
   
     }
 }
+*/

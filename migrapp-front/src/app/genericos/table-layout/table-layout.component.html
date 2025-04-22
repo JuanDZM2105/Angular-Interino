@@ -29,7 +29,7 @@
       </button>
     </div>
     <div>
-      @if (listado && listado.length === 0){
+      @if (!listado || listado.length === 0){
         <p style="text-align: center;">No hay datos para mostrar</p>
       } @else {
         <ng-content select="[tabla]"></ng-content>

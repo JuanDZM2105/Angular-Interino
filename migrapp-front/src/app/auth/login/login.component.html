@@ -23,6 +23,13 @@
                 La contraseña es obligatoria.
               </div>
           </div>
+
+          <div class="inputs">
+            <select formControlName="preferredMfaMethod">
+              <option value="email">Código por Email</option>
+              <option value="sms">Código por SMS</option>
+            </select>
+          </div>
           
           <div>
             <button type="submit" class="mainbutton login-button" mat-flat-button>Login</button>
