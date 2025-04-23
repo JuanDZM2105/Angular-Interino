@@ -51,18 +51,8 @@ export class LoginComponent {
           
         // Abrir el modal de MFA para verificar el código
         const dialogRef = this.dialog.open(MfaVerificationComponent, {
-          width: '400px',  // Ajusta el tamaño del modal si es necesario
-          data: { email: email }  // Pasamos el correo al modal
-        });
-
-        // Después de que el modal se cierre
-        dialogRef.afterClosed().subscribe(result => {
-          if (result) {
-            console.log('Código MFA validado:', result);
-            this.router.navigate(['/home']);  // Redirigir después de la validación del MFA
-          } else {
-            console.log('El modal de MFA no devolvió un resultado válido');
-          }
+          width: '400px',
+          data: { email: email }
         });
       },
       error: (error) => {

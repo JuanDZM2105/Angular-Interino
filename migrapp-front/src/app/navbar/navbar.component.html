@@ -25,7 +25,7 @@
                 Audits
             </a>
         </li>
-        <li>
+        <li *ngIf="isAdmin()">
            <a mat-button routerLink="roles" routerLinkActive="active" class="nav-link">
                 <mat-icon>tune</mat-icon>
                 Roles

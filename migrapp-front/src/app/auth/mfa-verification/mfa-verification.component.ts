@@ -1,5 +1,5 @@
 import { Component, inject, Inject, } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router }  from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -7,11 +7,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatDialogModule, MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-mfa-verification',
-  standalone: true,
+  standalone: true, 
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -30,7 +30,6 @@ export class MfaVerificationComponent {
   private router = inject(Router);
 
   form = this.formBuilder.group({
-    email: ['', Validators.required],
     code: ['', Validators.required]
   });
 

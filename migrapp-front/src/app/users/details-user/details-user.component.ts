@@ -1,12 +1,11 @@
 import { Component, inject, Input, numberAttribute, OnInit } from '@angular/core';
 import { CreateUserDto } from '../create-user.dto'; // ojo a la ruta
-import { FormUsersComponent } from '../form-users/form-users.component';
 import { UsersService } from '../users.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-user',
-  imports: [FormUsersComponent],
+  imports: [],
   templateUrl: './details-user.component.html',
   styleUrl: './details-user.component.css'
 })

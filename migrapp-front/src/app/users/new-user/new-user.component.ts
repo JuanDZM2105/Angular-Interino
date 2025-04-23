@@ -8,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select'; // Para <mat-select>
 import { MatCheckboxModule } from '@angular/material/checkbox'; // Para <mat-checkbox>
 import { MatButtonModule } from '@angular/material/button'; // Para los botones
 import { MatOptionModule } from '@angular/material/core'; // Para <mat-option>
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-user',
@@ -38,15 +39,26 @@ export class NewUserComponent {
     assignedUserIds: []
   };
 
-  token: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6'; // Aquí debes traer el token JWT cuando el usuario esté logueado
+  // Obtener el token desde el localStorage
+  token: string = localStorage.getItem('token') || ''; // O un valor vacío o nulo si no existe
 
-  constructor(private usersService: UsersService) { }
+  constructor(
+    private usersService: UsersService,
+    private router: Router
+  ) { }
 
   onSubmit(): void {
+    if (!this.token) {
+      console.error('No se encontró un token de autenticación.');
+      return;
+    }
+
+    console.log('Datos del nuevo usuario:', this.newUser);
+
     this.usersService.createUser(this.newUser, this.token).subscribe({
       next: (response) => {
         console.log('Usuario creado exitosamente', response);
-        // Aquí podrías redirigir o limpiar el formulario
+        this.router.navigate(['/users']);
       },
       error: (error) => {
         console.error('Error al crear usuario', error);

@@ -2,17 +2,25 @@
 <mat-dialog-content>
   <p>Escribe el código de verificación enviado a tu correo</p>
 
-  <mat-form-field appearance="outline" class="full-width">
-    <mat-label>Código</mat-label>
-    <input matInput [formControl]="form.controls['code']" required>
-  </mat-form-field>
+  <form [formGroup]="form" (ngSubmit)="verificarCodigo()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Código</mat-label>
+      <input matInput formControlName="code" required>
+      <mat-error *ngIf="form.controls['code'].hasError('required')">
+        El código es obligatorio.
+      </mat-error>
+    </mat-form-field>
 
-  <div>
-    <span>Tiempo restante: {{ countdown }} segundos</span>
-  </div>
+    <div>
+      <span>Tiempo restante: {{ countdown }} segundos</span>
+    </div>
+    
+    <div>
+      <button mat-button (click)="onNoClick()">Cancelar</button>
+    </div>
+
+    <div>
+      <button mat-button type="submit">Verificar Código</button>
+    </div>
+  </form>
 </mat-dialog-content>
-
-<mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancelar</button>
-  <button mat-button [mat-dialog-close]="true">Verificar Código</button>
-</mat-dialog-actions>

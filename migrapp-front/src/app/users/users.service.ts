@@ -22,4 +22,15 @@ export class UsersService {
 
     return this.http.post(url, user, { headers });
   }
+
+  getUsers(): Observable<any[]> {
+    const token = localStorage.getItem('token');  // Obtener el token desde localStorage
+  
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+  
+    const url = `${this.baseUrl}/admin/users/full-info`;
+    return this.http.get<any[]>(url, { headers });
+  }
 }

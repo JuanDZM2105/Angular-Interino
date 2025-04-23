@@ -9,6 +9,7 @@ import { DetailsUserComponent } from './users/details-user/details-user.componen
 import { LoginComponent } from './auth/login/login.component';
 import { MainlayoutComponent } from './mainlayout/mainlayout.component';
 import { MfaVerificationComponent } from './auth/mfa-verification/mfa-verification.component';
+import { ProfileComponent } from './users/profile/profile.component';
 
 
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
         children: [
             {path: "home", component: HomeComponent},
             {path: "users", component: UsersComponent},
+            {path: "profile", component: ProfileComponent},
             {path: "metrics", component: MetricsComponent},
             {path: "roles", component: RolesComponent},
             {path: "audits", component: AuditsComponent},

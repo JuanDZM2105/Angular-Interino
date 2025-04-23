@@ -1,0 +1,75 @@
+<h2>Perfil del Usuario</h2>
+
+<!-- Verificar si userProfile existe -->
+  <form  *ngIf="isEditing" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <!-- Nombre -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="name" placeholder="Nombre" [value]="userProfile.name" />
+      <mat-error *ngIf="profileForm.controls['name'].hasError('required')">
+        El nombre es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Apellido -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="lastName" placeholder="Apellido" [value]="userProfile.lastName" />
+      <mat-error *ngIf="profileForm.controls['lastName'].hasError('required')">
+        El apellido es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Email -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" placeholder="Email" [value]="userProfile.email"/>
+    </mat-form-field>
+
+    <!-- País -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>País</mat-label>
+      <input matInput formControlName="country" placeholder="País" [value]="userProfile.country" />
+      <mat-error *ngIf="profileForm.controls['country'].hasError('required')">
+        El país es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Teléfono -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Teléfono</mat-label>
+      <input matInput formControlName="phone" placeholder="Teléfono" [value]="userProfile.phone" />
+      <mat-error *ngIf="profileForm.controls['phone'].hasError('required')">
+        El teléfono es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Prefijo de Teléfono -->
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Prefijo Teléfono</mat-label>
+      <input matInput formControlName="phonePrefix" placeholder="Prefijo" [value]="userProfile.phonePrefix" />
+      <mat-error *ngIf="profileForm.controls['phonePrefix'].hasError('required')">
+        El prefijo telefónico es obligatorio.
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button type="submit" [disabled]="profileForm.invalid">Guardar Cambios</button>
+    </div>
+  </form>
+
+  <!-- Mostrar los datos actuales si el formulario no está siendo editado -->
+  <div *ngIf="!isEditing">
+    <p><strong>Nombre:</strong> {{ userProfile.name }}</p>
+    <p><strong>Apellido:</strong> {{ userProfile.lastName }}</p>
+    <p><strong>Email:</strong> {{ userProfile.email }}</p>
+    <p><strong>País:</strong> {{ userProfile.country }}</p>
+    <p><strong>Teléfono:</strong> {{ userProfile.phone }}</p>
+    <p><strong>Prefijo Teléfono:</strong> {{ userProfile.phonePrefix }}</p>
+    <p><strong>Tipo de Usuario:</strong> {{ userProfile.userType }}</p>
+    <p><strong>Estado de la Cuenta:</strong> {{ userProfile.accountStatus }}</p>
+    <p><strong>Fecha de Creación de la Cuenta:</strong> {{ userProfile.accountCreated | date }}</p>
+
+    <!-- Botón para editar -->
+    <button mat-button (click)="editProfile()">Editar Perfil</button>
+  </div>
