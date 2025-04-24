@@ -1,39 +1,71 @@
 <div class="card">
   <div class="card-content">
     <div class="container-fluid button-toolbar">
+      <button class="flat-button" (click)="exportUsers()">
+        <mat-icon>download</mat-icon>
+        Export
+      </button>
 
-            <button class="flat-button">
-                <mat-icon>download</mat-icon>
-                Export
-            </button>
-
-            <button class="flat-button" >
-                <mat-icon>refresh</mat-icon>
-                Refresh
-            </button>
+      <button class="flat-button" (click)="refreshFilters()">
+        <mat-icon>refresh</mat-icon>
+        Refresh
+      </button>
             
-            <button class="flat-button">
-                <mat-icon>more_vert</mat-icon>
-                Actions
-            </button>
+      <button class="flat-button">
+        <mat-icon>more_vert</mat-icon>
+        Actions
+      </button>
     </div>
+
     <div class="filters-bar">
       <div class="search-box">
         <mat-icon>search</mat-icon>
         <input type="text" placeholder="Search..." />
       </div>
-    
-      <button class="flat-button">
+
+      <!-- Mostrar los filtros -->
+      <button class="flat-button" (click)="toggleFilters()">
         <mat-icon>filter_alt</mat-icon>
         Añadir filtros
       </button>
+
+      <!-- Filtros dinámicos basados en los filtros obtenidos -->
+      <div *ngIf="filtersVisible">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tipo de Usuario</mat-label>
+          <mat-select [(value)]="selectedUserType">
+            <mat-option *ngFor="let type of filters.userTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Estado de la Cuenta</mat-label>
+          <mat-select [(value)]="selectedAccountStatus">
+            <mat-option *ngFor="let status of filters.accountStatuses" [value]="status">{{ status }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>País</mat-label>
+          <mat-select [(value)]="selectedCountry">
+            <mat-option *ngFor="let country of filters.countries" [value]="country">{{ country }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Estado de Actividad</mat-label>
+          <mat-select [(value)]="selectedIsActiveNow">
+            <mat-option *ngFor="let isActive of filters.isActiveNow" [value]="isActive">{{ isActive ? 'Activo' : 'Inactivo' }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Botón para aplicar los filtros -->
+        <button mat-raised-button (click)="applyFilters()">Aplicar filtros</button>
+      </div>
     </div>
+
     <div>
-      @if (!listado || listado.length === 0){
-        <p style="text-align: center;">No hay datos para mostrar</p>
-      } @else {
-        <ng-content select="[tabla]"></ng-content>
-      }
+      <ng-content select="[tabla]"></ng-content>
     </div>
   </div>
 </div>
