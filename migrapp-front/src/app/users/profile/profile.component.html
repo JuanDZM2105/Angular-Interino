@@ -1,7 +1,9 @@
+<div class="form-container">
+
 <h2>Perfil del Usuario</h2>
 
 <!-- Verificar si userProfile existe -->
-  <form  *ngIf="isEditing" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <form  *ngIf="isEditing" [formGroup]="profileForm" (ngSubmit)="onSubmit()" class="form-grid">
     <!-- Nombre -->
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Nombre</mat-label>
@@ -73,3 +75,4 @@
     <!-- Botón para editar -->
     <button mat-button (click)="editProfile()">Editar Perfil</button>
   </div>
+</div>

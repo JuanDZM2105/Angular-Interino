@@ -34,7 +34,7 @@ export class MfaVerificationComponent {
   });
 
   email: string | null = null;
-  countdown: number = 60; // Tiempo de 60 segundos para la cuenta atrás
+  countdown: number = 180; // Tiempo de 60 segundos para la cuenta atrás
 
   constructor(
     private dialogRef: MatDialogRef<MfaVerificationComponent>,  // Inyectamos MatDialogRef
