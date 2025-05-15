@@ -1,3 +1,35 @@
-<div class="upper">
-  <h1 class="title">Metrics</h1>
+<h2 class="dashboard-title">Dashboard de Métricas</h2>
+
+<div class="charts-container">
+  <div class="chart-card">
+    <h3>Tipos de Usuario</h3>
+    <canvas baseChart 
+      [data]="userTypeData" 
+      [options]="userTypeOptions" 
+      chartType="pie">
+    </canvas>
+  </div>
+
+  <div class="chart-card">
+    <h3>Estado de Procesos Legales</h3>
+    <canvas baseChart 
+      [data]="processStatusData" 
+      [options]="processStatusOptions" 
+      chartType="bar">
+    </canvas>
+  </div>
+
+  <div class="chart-card">
+    <h3>Estado de Cuenta</h3>
+    <canvas baseChart 
+      [data]="accountStatusData" 
+      [options]="accountStatusOptions" 
+      chartType="bar">
+    </canvas>
+  </div>
+
+  <div class="active-users-card">
+    <h3>Usuarios Activos</h3>
+    <p>{{ metrics.totalActiveUsers }}</p>
+  </div>
 </div>

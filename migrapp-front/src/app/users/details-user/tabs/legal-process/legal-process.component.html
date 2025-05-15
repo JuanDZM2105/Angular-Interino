@@ -1,0 +1,43 @@
+<h3>Procesos Legales del Usuario</h3>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th></th>
+      <th>ID</th>
+      <th>Tipo</th>
+      <th>Estado</th>
+      <th>Progreso</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let process of legalProcesses">
+      <tr (click)="toggleProcedures(process)" class="clickable">
+        <td>
+          <mat-icon>
+            {{ expandedProcessId === process.legalProcessId ? 'expand_less' : 'expand_more' }}
+          </mat-icon>
+        </td>
+        <td>{{ process.legalProcessId }}</td>
+        <td>{{ process.type }}</td>
+        <td>{{ process.status }}</td>
+        <td>{{ process.progress }}%</td>
+      </tr>
+
+      <tr *ngIf="expandedProcessId === process.legalProcessId">
+        <td colspan="5">
+          <div *ngIf="process.procedures?.length > 0; else noProcedures">
+            <ul>
+              <li *ngFor="let p of process.procedures">
+                {{ p.name }} - {{ p.status }}
+              </li>
+            </ul>
+          </div>
+          <ng-template #noProcedures>
+            <p class="no-data-msg">Este proceso aún no tiene procedimientos registrados.</p>
+          </ng-template>
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>

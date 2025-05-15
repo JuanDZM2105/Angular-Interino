@@ -10,6 +10,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { MainlayoutComponent } from './mainlayout/mainlayout.component';
 import { MfaVerificationComponent } from './auth/mfa-verification/mfa-verification.component';
 import { ProfileComponent } from './users/profile/profile.component';
+import { CreateLegalProcessComponent } from './create-legal-process/create-legal-process.component';
 
 
 export const routes: Routes = [
@@ -31,6 +32,7 @@ export const routes: Routes = [
             {path: "audits", component: AuditsComponent},
             {path: "users/new-user", component:NewUserComponent},
             {path: "users/details-user/:id", component:DetailsUserComponent},
+            {path: 'legal-process/create', component: CreateLegalProcessComponent },
             {path: "**", redirectTo: ""},
         ]
     },

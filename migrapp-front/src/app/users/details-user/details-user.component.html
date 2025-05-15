@@ -1,7 +1,22 @@
-<!--
-<h1 class="title">Details-User {{id}}</h1>
+<div class="user-header">
+  <div class="user-info-text">
+    <h2>{{ userInfo?.name |titlecase}} {{ userInfo?.lastName |titlecase }}</h2>
+    <p class="user-role">{{ userInfo.userType | uppercase }}</p>
+  </div>
+</div>
 
-@if (user){
-    <app-form-users (postForms)="guardarCambios($event)" [modelo]="user"></app-form-users>
-}
--->
+<mat-tab-group>
+  <mat-tab label="Información general">
+    <!-- Aquí va el contenido de la info general -->
+    <app-general-info *ngIf="userId !== null" [userId]="userId"></app-general-info>
+  </mat-tab>
+  
+  <mat-tab label="Procesos">
+    <app-legal-process *ngIf="userId !== null" [userId]="userId"></app-legal-process>
+  </mat-tab>
+  
+  <mat-tab label="Registro de actividad">
+    <!-- Aquí va el componente o contenido del log -->
+    <app-activity-log *ngIf="userId !== null" [userId]="userId"></app-activity-log>
+  </mat-tab>
+</mat-tab-group>

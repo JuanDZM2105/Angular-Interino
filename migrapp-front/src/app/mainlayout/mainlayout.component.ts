@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet, Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-mainlayout',
-  imports: [RouterOutlet, NavbarComponent],
+  imports: [RouterOutlet, NavbarComponent, MatIconModule],
   templateUrl: './mainlayout.component.html',
   styleUrl: './mainlayout.component.css'
 })
@@ -20,6 +21,10 @@ export class MainlayoutComponent {
   // Método para redirigir al perfil del usuario
   goToProfile() {
     this.router.navigate(['/profile']);  // Ruta de perfil del usuario
+  }
+
+  goToCreateLegalProcess() {
+    this.router.navigate(['/legal-process/create']);
   }
 }
 

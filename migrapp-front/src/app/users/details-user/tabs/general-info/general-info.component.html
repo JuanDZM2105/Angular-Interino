@@ -1,0 +1,99 @@
+<h2>Detalles del Usuario</h2>
+
+<form *ngIf="isEditing" [formGroup]="detailsForm" (ngSubmit)="onSubmit()" class="form-grid">
+  <!-- Campos como ya los tienes -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="name" placeholder="Nombre" />
+    <mat-error *ngIf="detailsForm.controls['name'].hasError('required')">
+      El nombre es obligatorio.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Apellido</mat-label>
+    <input matInput formControlName="lastName" placeholder="Apellido" />
+    <mat-error *ngIf="detailsForm.controls['lastName'].hasError('required')">
+      El apellido es obligatorio.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="Email" />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>País</mat-label>
+    <input matInput formControlName="country" placeholder="País" />
+    <mat-error *ngIf="detailsForm.controls['country'].hasError('required')">
+      El país es obligatorio.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Teléfono</mat-label>
+    <input matInput formControlName="phone" placeholder="Teléfono" />
+    <mat-error *ngIf="detailsForm.controls['phone'].hasError('required')">
+      El teléfono es obligatorio.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Prefijo Teléfono</mat-label>
+    <input matInput formControlName="phonePrefix" placeholder="Prefijo Teléfono" />
+  </mat-form-field>
+
+  <!-- Botones -->
+  <div class="form-actions">
+    <button mat-raised-button color="primary" type="submit" [disabled]="detailsForm.invalid">
+      Guardar Cambios
+    </button>
+    <button mat-raised-button color="warn" type="button" (click)="isEditing = false">
+      Cancelar
+    </button>
+  </div>
+</form>
+
+<!-- Mostrar los datos actuales si no estamos editando -->
+<div *ngIf="!isEditing" class="info-container">
+
+  <div class="info-grid">
+    <div class="info-item">
+      <label>Nombre:</label>
+      <span>{{ userInfo.name }}</span>
+    </div>
+    <div class="info-item">
+      <label>Apellido:</label>
+      <span>{{ userInfo.lastName }}</span>
+    </div>
+    <div class="info-item">
+      <label>Email:</label>
+      <span>{{ userInfo.email }}</span>
+    </div>
+    <div class="info-item">
+      <label>País:</label>
+      <span>{{ userInfo.country }}</span>
+    </div>
+    <div class="info-item">
+      <label>Teléfono:</label>
+      <span>{{ userInfo.phone }}</span>
+    </div>
+    <div class="info-item">
+      <label>Prefijo Teléfono:</label>
+      <span>{{ userInfo.phonePrefix }}</span>
+    </div>
+    <div class="info-item">
+      <label>Tipo de Usuario:</label>
+      <span>{{ userInfo.userType }}</span>
+    </div>
+    <div class="info-item">
+      <label>Estado de la Cuenta:</label>
+      <span>{{ userInfo.accountStatus }}</span>
+    </div>
+  </div>
+
+  <button mat-button class="edit-button" (click)="editProfile()">Editar Perfil</button>
+</div>
+
+

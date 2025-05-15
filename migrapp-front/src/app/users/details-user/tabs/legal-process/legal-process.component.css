@@ -1,0 +1,9 @@
+.clickable {
+  cursor: pointer;
+}
+
+.no-data-msg {
+  font-style: italic;
+  color: #888;
+  padding-left: 16px;
+}

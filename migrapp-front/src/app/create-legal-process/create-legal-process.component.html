@@ -1,0 +1,88 @@
+<h1 class="title">Crear Proceso Legal</h1>
+
+<form (ngSubmit)="submitForm()" #legalForm="ngForm" class="form-grid">
+
+  <!-- Nombre del proceso -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput type="text" name="name" required [(ngModel)]="legalProcess.name">
+  </mat-form-field>
+
+  <!-- Tipo -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Tipo</mat-label>
+    <input matInput type="text" name="type" required [(ngModel)]="legalProcess.type">
+  </mat-form-field>
+
+  <!-- Estado -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Estado</mat-label>
+    <input matInput type="text" name="status" required [(ngModel)]="legalProcess.status">
+  </mat-form-field>
+
+  <!-- Costo -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Costo</mat-label>
+    <input matInput type="number" name="cost" required [(ngModel)]="legalProcess.cost">
+  </mat-form-field>
+
+  <!-- Estado del pago -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Estado del Pago</mat-label>
+    <mat-select name="paymentStatus" required [(ngModel)]="legalProcess.paymentStatus">
+      <mat-option value="pendiente">Pendiente</mat-option>
+      <mat-option value="pagado">Pagado</mat-option>
+      <mat-option value="cancelado">Cancelado</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Fecha de inicio -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Fecha de inicio</mat-label>
+    <input matInput [matDatepicker]="startPicker" name="startDate" required [(ngModel)]="legalProcess.startDate">
+    <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+    <mat-datepicker #startPicker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Fecha de fin -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Fecha de finalización</mat-label>
+    <input matInput [matDatepicker]="endPicker" name="endDate" required [(ngModel)]="legalProcess.endDate">
+    <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+    <mat-datepicker #endPicker></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Cliente (ID) -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Cliente</mat-label>
+    <mat-select name="clientUserId" required [(ngModel)]="legalProcess.clientUserId">
+      <mat-option *ngFor="let client of availableUsers" [value]="client.id">
+        {{ client.name }} {{ client.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Abogado (ID) -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Abogado</mat-label>
+    <mat-select name="lawyerUserId" required [(ngModel)]="legalProcess.lawyerUserId">
+      <mat-option *ngFor="let lawyer of availableUsers" [value]="lawyer.id">
+        {{ lawyer.name }} {{ lawyer.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Botones -->
+  <div class="button-group full-2">
+    <button mat-flat-button color="primary" type="submit" [disabled]="legalForm.invalid || loading">
+      Crear
+    </button>
+    <button mat-stroked-button color="warn" routerLink="/users">
+      Cancelar
+    </button>
+  </div>
+
+  <!-- Mensaje -->
+  <p *ngIf="message" class="message">{{ message }}</p>
+
+</form>

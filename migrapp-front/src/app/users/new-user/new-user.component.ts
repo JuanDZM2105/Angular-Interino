@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from '../users.service'; // ojo a la ruta
 import { CreateUserDto } from '../create-user.dto'; // ojo a la ruta
 import { FormsModule } from '@angular/forms'; // Para [(ngModel)]
@@ -8,7 +8,8 @@ import { MatSelectModule } from '@angular/material/select'; // Para <mat-select>
 import { MatCheckboxModule } from '@angular/material/checkbox'; // Para <mat-checkbox>
 import { MatButtonModule } from '@angular/material/button'; // Para los botones
 import { MatOptionModule } from '@angular/material/core'; // Para <mat-option>
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-new-user',
@@ -18,12 +19,15 @@ import { Router } from '@angular/router';
     MatSelectModule,
     MatCheckboxModule,
     MatButtonModule,
-    MatOptionModule
+    MatOptionModule,
+    NgIf,
+    NgFor,
+    RouterModule
   ],
   templateUrl: './new-user.component.html',
   styleUrls: ['./new-user.component.css']
 })
-export class NewUserComponent {
+export class NewUserComponent implements OnInit{
 
   newUser: CreateUserDto = {
     email: '',
@@ -39,6 +43,8 @@ export class NewUserComponent {
     assignedUserIds: []
   };
 
+  availableUsers: any[] = [];
+
   // Obtener el token desde el localStorage
   token: string = localStorage.getItem('token') || ''; // O un valor vacío o nulo si no existe
 
@@ -46,6 +52,20 @@ export class NewUserComponent {
     private usersService: UsersService,
     private router: Router
   ) { }
+
+  ngOnInit(): void {
+    // Llamar al servicio para obtener los usuarios disponibles
+    if (this.token) {
+      this.usersService.getAvailableUsers().subscribe({
+        next: (data) => {
+          this.availableUsers = data; // Almacenar los usuarios disponibles
+        },
+        error: (error) => {
+          console.error('Error al obtener usuarios disponibles', error);
+        }
+      });
+    }
+  }
 
   onSubmit(): void {
     if (!this.token) {

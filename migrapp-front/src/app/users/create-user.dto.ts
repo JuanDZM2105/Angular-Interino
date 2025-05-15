@@ -11,3 +11,16 @@ export interface CreateUserDto {
     hasAccessToAllUsers: boolean;
     assignedUserIds: number[];
   }
+
+export interface PagedResponse<T> {
+  data: T[];
+  totalCount: number;
+  currentPage: number;
+  pageSize: number;
+}
+
+export interface TableColumn {
+  key: string;
+  label: string;
+  selected: boolean;
+}

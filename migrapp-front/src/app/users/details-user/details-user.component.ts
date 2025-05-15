@@ -1,35 +1,46 @@
-import { Component, inject, Input, numberAttribute, OnInit } from '@angular/core';
-import { CreateUserDto } from '../create-user.dto'; // ojo a la ruta
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CommonModule, NgIf } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { GeneralInfoComponent } from './tabs/general-info/general-info.component';
+import { LegalProcessComponent } from './tabs/legal-process/legal-process.component';
+import { ActivityLogComponent } from './tabs/activity-log/activity-log.component';
 import { UsersService } from '../users.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-details-user',
-  imports: [],
+  standalone: true,
+  imports: [
+    CommonModule,
+    MatTabsModule,
+    GeneralInfoComponent,
+    LegalProcessComponent,
+    ActivityLogComponent,
+    NgIf,
+  ],
   templateUrl: './details-user.component.html',
-  styleUrl: './details-user.component.css'
+  styleUrls: ['./details-user.component.css']
 })
-export class DetailsUserComponent /**implements OnInit*/ {}
-/** 
+export class DetailsUserComponent implements OnInit {
+  userId: number | null = null;
+  userInfo: any = null;
+
+  constructor(private route: ActivatedRoute, private usersService: UsersService) {}
+
   ngOnInit(): void {
-    this.userService.obtenerPorId(this.id).subscribe(user => {
-      this.user = user;
-    })    
-  }
+    const idParam = this.route.snapshot.paramMap.get('id');
+    this.userId = idParam ? +idParam : null;
 
-  @Input({transform: numberAttribute})
-  id!:number;
-
-  user?: CreateUserDto;
-  userService = inject(UsersService);
-  router = inject(Router);
-  errors: string[] = [];
-  
-    guardarCambios(user: CreateUserDto){
-      this.userService.actualizar(this.id, user).subscribe(() => {         
-          this.router.navigate(['/users'])
-        });
-  
+    if (this.userId) {
+      this.usersService.getUserInfo(this.userId).subscribe({
+        next: (data) => {
+          this.userInfo = data;
+        },
+        error: (err) => {
+          console.error('Error al obtener usuario', err);
+        }
+      });
     }
+  }
 }
-*/
+

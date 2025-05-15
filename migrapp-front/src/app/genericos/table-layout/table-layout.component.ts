@@ -9,10 +9,12 @@ import { MatSelectModule } from '@angular/material/select';  // Para mat-select
 import { MatOptionModule } from '@angular/material/core';  // Para mat-option
 import { MatCheckboxModule } from '@angular/material/checkbox';  // Para mat-checkbox
 import { UsersService } from '../../users/users.service'; // Importar el servicio de usuarios
+import { FormsModule } from '@angular/forms';
+import { MatMenuModule } from '@angular/material/menu'; // Servicio para manejar las columnas
 @Component({
   selector: 'app-table-layout',
   standalone: true,
-  imports: [MatButtonModule, MatIconModule, CommonModule, MatCheckboxModule, MatFormFieldModule, MatSelectModule],
+  imports: [MatButtonModule, MatIconModule, CommonModule, MatCheckboxModule, MatFormFieldModule, MatSelectModule, FormsModule, MatMenuModule],
   templateUrl: './table-layout.component.html',
   styleUrls: ['./table-layout.component.css']
 })
@@ -22,13 +24,18 @@ export class TableLayoutComponent implements OnInit {
   selectedUserType: string = ''; 
   selectedAccountStatus: string = ''; 
   selectedCountry: string = '';
-  selectedIsActiveNow: boolean = true;
+  selectedIsActiveNow: boolean=true;
   filters: any;
   filtersVisible = false;
+  availableColumns: any[] = [];  // Aquí almacenaremos las columnas disponibles
+  selectedColumns: any[] = [];
 
   @Output() filtersChanged = new EventEmitter<any>();
 
-  constructor(private filtroService: FiltroService, private usersService: UsersService) { }
+  constructor(
+    private filtroService: FiltroService, 
+    private usersService: UsersService,
+  ) { }
 
   ngOnInit(): void {
     this.loadFilters();  // Cargar los filtros al inicializar el componente

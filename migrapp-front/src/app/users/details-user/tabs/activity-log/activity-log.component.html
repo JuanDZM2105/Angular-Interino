@@ -1,0 +1,26 @@
+<h3>Registro de Actividad del Usuario</h3>
+
+<div *ngIf="userLogs.length > 0; else noLogs">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Tipo de Acción</th>
+        <th>Dirección IP</th>
+        <th>Descripción</th>
+        <th>Fecha y Hora</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let log of userLogs">
+        <td>{{ log.actionType }}</td>
+        <td>{{ log.ipAddress }}</td>
+        <td>{{ log.description }}</td>
+        <td>{{ log.actionDate | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noLogs>
+  <p class="no-logs-msg">Este usuario aún no tiene registros de actividad.</p>
+</ng-template>

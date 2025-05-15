@@ -1,0 +1,48 @@
+/* 1) Contenedor principal */
+.form-container {
+    width: 90vw;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  /* 2) Grid de dos columnas */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  
+  /* 3) Elementos que abarquen 2 columnas */
+  .full-2 {
+    grid-column: span 2;
+  }
+  
+  /* 4) Título ocupa fila completa */
+  .title {
+    grid-column: span 2;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #222;
+  }
+  
+  /* 5) Mat-form-field ocupa 100% de su celda */
+  .mat-form-field {
+    width: 100%;
+  }
+  
+  /* 6) Botones agrupados a la derecha */
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem; /* separación entre botones */
+  }
+  
+  /* 7) Mínimo ancho para los botones */
+  .button-group button {
+    min-width: 120px;
+}
