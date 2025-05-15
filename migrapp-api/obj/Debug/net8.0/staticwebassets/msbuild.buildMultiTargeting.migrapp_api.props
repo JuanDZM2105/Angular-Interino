@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\migrapp_api.props" />
-</Project>
