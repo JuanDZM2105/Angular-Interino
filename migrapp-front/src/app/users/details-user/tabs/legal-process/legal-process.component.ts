@@ -39,7 +39,11 @@ export class LegalProcessComponent implements OnInit {
 
     this.legalProcessService.getProcessWithProcedures(process.legalProcessId).subscribe({
       next: (fullProcess) => {
+        // Aquí ya vienen procedimientos con documentos (aunque vacíos)
         process.procedures = fullProcess.procedures;
+
+        // No llamar nuevamente para documentos, porque ya vienen en 'procedures'
+
         this.expandedProcessId = process.legalProcessId;
       },
       error: (err) => {

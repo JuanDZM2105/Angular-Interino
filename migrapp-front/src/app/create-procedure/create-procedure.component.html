@@ -22,16 +22,25 @@
     <mat-datepicker #dueDatePicker></mat-datepicker>
   </mat-form-field>
 
-    <!-- Proceso legal asociado (ID) oculto -->
+  <!-- Botón Subir Documento en fila completa -->
+  <div class="full-width">
+    <button mat-flat-button color="primary" type="button" (click)="openFileDialog()" style="width: 150px;">
+      Subir Documento
+    </button>
+  </div>
+
+  <!-- Input file oculto -->
+  <input #fileInput type="file" style="display:none" (change)="onFileSelected($event)" />
+
+  <!-- Proceso legal asociado (ID) oculto -->
   <input type="hidden" name="legalProcessId" [(ngModel)]="procedure.legalProcessId" />
 
-
-  <!-- Botones -->
+  <!-- Botones Crear y Cancelar -->
   <div class="button-group full-2">
     <button mat-flat-button color="primary" type="submit" [disabled]="procedureForm.invalid">
       Create
     </button>
-    <button mat-stroked-button color="warn" routerLink="/legal-processes">
+    <button mat-stroked-button color="warn" type="button" (click)="goBack()">
       Cancel
     </button>
   </div>

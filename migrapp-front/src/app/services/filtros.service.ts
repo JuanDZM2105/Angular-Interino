@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class FiltroService {
-  private baseUrl = 'https://localhost:7045/api';
+  private baseUrl = '/api';
 
   constructor(private http: HttpClient) { }
 

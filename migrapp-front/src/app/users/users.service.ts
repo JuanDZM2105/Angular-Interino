@@ -8,7 +8,7 @@ import { CreateUserDto } from './create-user.dto'; // importa tu nuevo modelo
 })
 export class UsersService {
 
-  private baseUrl = 'https://localhost:7045/api';
+  private baseUrl = '/api';
 
   constructor(private http: HttpClient) { }
 

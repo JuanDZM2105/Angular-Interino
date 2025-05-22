@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MetricsService {
 
-  private baseUrl = 'https://localhost:7045/api';
+  private baseUrl = '/api';
 
   constructor(private http: HttpClient) { }
 

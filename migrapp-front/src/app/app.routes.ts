@@ -34,7 +34,6 @@ export const routes: Routes = [
             {path: "audits", component: AuditsComponent},
             {path: "users/new-user", component:NewUserComponent},
             {path: "users/details-user/:id", component:DetailsUserComponent},
-            {path: "legal-processes", component: LegalProcessComponent},
             {path: 'legal-process/create', component: CreateLegalProcessComponent },
             {path: 'create-procedure/:legalProcessId', component: CreateProcedureComponent },
             {path: "**", redirectTo: ""},
