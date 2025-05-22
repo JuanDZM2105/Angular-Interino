@@ -1,9 +1,42 @@
 .clickable {
   cursor: pointer;
 }
-
 .no-data-msg {
   font-style: italic;
   color: #888;
   padding-left: 16px;
 }
+
+.procedure-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.procedure-table th,
+.procedure-table td {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.procedure-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #222;
+}
+
+.procedure-table tbody tr:hover {
+  background-color: #f0f8ff;
+}
+
+.procedure-table tbody td {
+  font-weight: 500;       /* Más peso que normal (400) pero no tan fuerte como bold (700) */
+  color: #222222;         /* Un gris oscuro para mejor legibilidad */
+  font-size: 15px;        /* Puedes aumentar un poco el tamaño si quieres */
+}
+
+

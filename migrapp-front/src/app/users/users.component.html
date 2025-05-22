@@ -1,6 +1,6 @@
 <div class="upper">
-  <h1 class="title">Usuarios</h1>
-  <button class="mainbutton" (click)="goToNewUser()">Nuevo Usuario</button>
+  <h1 class="title">Users</h1>
+  <button class="mainbutton" (click)="goToNewUser()">New User</button>
 </div>
 
 <app-table-layout (filtersChanged)="applyFilters($event)">
@@ -17,18 +17,18 @@
           {{ column.label }}
         </mat-checkbox>
       </div>
-      <button class="flat-button" (click)="applySelectedColumns()">Aplicar columnas</button>
+      <button class="flat-button" (click)="applySelectedColumns()">Apply columns</button>
     </mat-menu>
 
     <table class="styled-table">
       <thead>
         <tr>
           <th scope="col">Id</th>
-          <th scope="col" *ngIf="isColumnVisible('name')">Nombre</th>
-          <th scope="col" *ngIf="isColumnVisible('lastName')">Apellido</th>
-          <th scope="col" *ngIf="isColumnVisible('email')">Correo</th>
-          <th scope="col" *ngIf="isColumnVisible('country')">País</th>
-          <th scope="col" *ngIf="isColumnVisible('accountStatus')">Estado de cuenta</th>
+          <th scope="col" *ngIf="isColumnVisible('name')">Name</th>
+          <th scope="col" *ngIf="isColumnVisible('lastName')">Last Name</th>
+          <th scope="col" *ngIf="isColumnVisible('email')">Email</th>
+          <th scope="col" *ngIf="isColumnVisible('country')">Country</th>
+          <th scope="col" *ngIf="isColumnVisible('accountStatus')">Account Status</th>
         </tr>
       </thead>
       <tbody>

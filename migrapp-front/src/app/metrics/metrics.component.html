@@ -1,8 +1,8 @@
-<h2 class="dashboard-title">Dashboard de Métricas</h2>
+<h2 class="dashboard-title">Metrics Dashboard</h2>
 
 <div class="charts-container">
   <div class="chart-card">
-    <h3>Tipos de Usuario</h3>
+    <h3>User Types</h3>
     <canvas baseChart 
       [data]="userTypeData" 
       [options]="userTypeOptions" 
@@ -11,7 +11,7 @@
   </div>
 
   <div class="chart-card">
-    <h3>Estado de Procesos Legales</h3>
+    <h3>Legal Process Status</h3>
     <canvas baseChart 
       [data]="processStatusData" 
       [options]="processStatusOptions" 
@@ -20,7 +20,7 @@
   </div>
 
   <div class="chart-card">
-    <h3>Estado de Cuenta</h3>
+    <h3>Account Status</h3>
     <canvas baseChart 
       [data]="accountStatusData" 
       [options]="accountStatusOptions" 
@@ -29,7 +29,7 @@
   </div>
 
   <div class="active-users-card">
-    <h3>Usuarios Activos</h3>
+    <h3>Active Users</h3>
     <p>{{ metrics.totalActiveUsers }}</p>
   </div>
 </div>

@@ -41,4 +41,13 @@ export class LegalProcessService {
     return this.http.post<any>(`${this.baseUrl}/legalProcess`, data, { headers });
   }
 
+  createProcedure(data: any): Observable<any> {
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.post<any>(`${this.baseUrl}/procedure`, data, { headers });
+  }
 }

@@ -8,6 +8,7 @@
       <th>Tipo</th>
       <th>Estado</th>
       <th>Progreso</th>
+      <th>Acciones</th> <!-- Columna para el botón -->
     </tr>
   </thead>
   <tbody>
@@ -22,16 +23,37 @@
         <td>{{ process.type }}</td>
         <td>{{ process.status }}</td>
         <td>{{ process.progress }}%</td>
+        <td>
+          <button
+            mat-stroked-button
+            color="primary"
+            [routerLink]="['/create-procedure', process.legalProcessId]"
+            (click)="$event.stopPropagation()"
+          >
+            Crear Procedimiento
+          </button>
+        </td>
       </tr>
 
       <tr *ngIf="expandedProcessId === process.legalProcessId">
-        <td colspan="5">
+        <td colspan="6">
           <div *ngIf="process.procedures?.length > 0; else noProcedures">
-            <ul>
-              <li *ngFor="let p of process.procedures">
-                {{ p.name }} - {{ p.status }}
-              </li>
-            </ul>
+            <table class="procedure-table">
+              <tbody>
+                <tr *ngFor="let p of process.procedures">
+                  <td>{{ p.name }}</td>
+                  <td>{{ p.status }}</td>
+                  <td>
+                    <ul *ngIf="p.documents?.length > 0; else noDocuments">
+                      <li *ngFor="let doc of p.documents">{{ doc.name }}</li>
+                    </ul>
+                    <ng-template #noDocuments>
+                      <em>No hay documentos</em>
+                    </ng-template>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <ng-template #noProcedures>
             <p class="no-data-msg">Este proceso aún no tiene procedimientos registrados.</p>

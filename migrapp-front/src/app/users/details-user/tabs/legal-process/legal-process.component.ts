@@ -2,11 +2,12 @@ import { Component, Input, OnInit } from '@angular/core';
 import { LegalProcessService } from '../../../../services/legal-process.service';
 import { NgFor, NgIf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-legal-process',
-  imports: [NgIf, NgFor, MatIconModule],
+  imports: [NgIf, NgFor, MatIconModule,RouterModule],
   templateUrl: './legal-process.component.html',
   styleUrls: ['./legal-process.component.css']
 })

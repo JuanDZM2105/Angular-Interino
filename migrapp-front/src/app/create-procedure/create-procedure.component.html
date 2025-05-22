@@ -1,0 +1,38 @@
+<h1 class="title">Create a Procedure</h1>
+
+<form (ngSubmit)="onSubmit()" #procedureForm="ngForm" class="form-grid">
+
+  <!-- Nombre -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" required [(ngModel)]="procedure.name" />
+  </mat-form-field>
+
+  <!-- Estado -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Status</mat-label>
+    <input matInput type="text" name="status" required [(ngModel)]="procedure.status" />
+  </mat-form-field>
+
+  <!-- Fecha de vencimiento -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Due Date</mat-label>
+    <input matInput [matDatepicker]="dueDatePicker" name="dueDate" required [(ngModel)]="procedure.dueDate" />
+    <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #dueDatePicker></mat-datepicker>
+  </mat-form-field>
+
+    <!-- Proceso legal asociado (ID) oculto -->
+  <input type="hidden" name="legalProcessId" [(ngModel)]="procedure.legalProcessId" />
+
+
+  <!-- Botones -->
+  <div class="button-group full-2">
+    <button mat-flat-button color="primary" type="submit" [disabled]="procedureForm.invalid">
+      Create
+    </button>
+    <button mat-stroked-button color="warn" routerLink="/legal-processes">
+      Cancel
+    </button>
+  </div>
+</form>
